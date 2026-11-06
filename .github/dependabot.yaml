@@ -4,6 +4,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Keep TypeScript 6 until the lint tooling supports TypeScript 7.
+      - dependency-name: typescript
+        versions: [">=7.0.0 <8.0.0"]
     groups:
       development-dependencies:
         dependency-type: development

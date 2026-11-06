@@ -1,27 +1,29 @@
 {
-  "name": "preset-npm-package",
-  "version": "0.0.0",
-  "description": "A strict TypeScript preset for publishing a single ESM package to npm.",
+  "name": "github-ci-verify",
+  "version": "0.1.0",
+  "description": "Verify the latest GitHub Actions push CI evidence for an exact source commit.",
   "keywords": [
-    "typescript",
-    "npm",
-    "package",
-    "preset",
-    "template"
+    "github-actions",
+    "ci",
+    "verification",
+    "cli"
   ],
-  "homepage": "https://github.com/shazhou-ww/preset-npm-package#readme",
+  "homepage": "https://github.com/shazhou-ww/github-ci-verify#readme",
   "bugs": {
-    "url": "https://github.com/shazhou-ww/preset-npm-package/issues"
+    "url": "https://github.com/shazhou-ww/github-ci-verify/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shazhou-ww/preset-npm-package.git"
+    "url": "git+https://github.com/shazhou-ww/github-ci-verify.git"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "github-ci-verify": "dist/bin.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -45,7 +47,7 @@
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "build": "pnpm clean && tsc -p tsconfig.build.json",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm lint:package",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm lint:package && pnpm test:artifact",
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -53,6 +55,7 @@
     "lint:package": "publint",
     "prepack": "pnpm build",
     "test": "vitest run",
+    "test:artifact": "node test/artifact-smoke.mjs",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p tsconfig.json"

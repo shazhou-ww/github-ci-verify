@@ -1,12 +1,2 @@
-/**
- * Return a friendly greeting for a non-empty name.
- */
-export function greet(name: string): string {
-  const normalizedName = name.trim();
-
-  if (normalizedName.length === 0) {
-    throw new TypeError("name must not be empty");
-  }
-
-  return `Hello, ${normalizedName}!`;
-}
+export { verifyCi } from "./verify.js";
+export type { VerificationOptions, VerificationEvidence } from "./verify.js";

@@ -2,8 +2,9 @@
 
 ## Development
 
-- This preset builds a single ESM TypeScript package for npm. Keep public
-  exports in `src/index.ts`, tests in `test/`, and generated files in `dist/`.
+- This project builds the github-ci-verify ESM TypeScript CLI and API. Keep
+  public exports in `src/index.ts`, tests in `test/`, and generated files in
+  `dist/`.
 - Use Node.js 22.13 or newer and pnpm 11.22 or newer.
 - Install dependencies with `pnpm install`.
 - Run `pnpm check` before submitting changes; it includes package-shape
@@ -21,5 +22,6 @@
 
 - Keep the package private until its metadata and release setup are
   intentionally configured for publication.
-- Follow the Trusted Publishing workflow in `README.md`; do not introduce
-  long-lived npm tokens.
+- The inherited publish workflow rejects private packages. Configure Trusted
+  Publishing deliberately before enabling releases; do not introduce long-lived
+  npm tokens.

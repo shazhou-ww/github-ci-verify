@@ -1,5 +1,0 @@
-version: 1
-title: npm package
-description:
-  ESM-only npm package baseline with strict TypeScript, package validation, CI,
-  and Trusted Publishing.
